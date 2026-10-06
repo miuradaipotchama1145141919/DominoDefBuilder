@@ -1,0 +1,36 @@
+name: Build Domino modules
+description: Build Domino module XML files from YAML sources
+inputs:
+  modules:
+    description: Modules directory
+    default: modules
+  out:
+    description: Output directory
+    default: dist
+  module:
+    description: Single module id such as vendor/model, empty for all
+    default: ""
+  version:
+    description: Version override, only valid with a single module
+    default: ""
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v6
+      with:
+        python-version: "3.14"
+    - shell: bash
+      env:
+        ACTION_PATH: ${{ github.action_path }}
+      run: pip install "$ACTION_PATH"
+    - shell: bash
+      env:
+        MODULES: ${{ inputs.modules }}
+        OUT: ${{ inputs.out }}
+        MODULE: ${{ inputs.module }}
+        VERSION: ${{ inputs.version }}
+      run: |
+        args=(--modules "$MODULES" build --out "$OUT")
+        if [ -n "$VERSION" ]; then args+=(--version "$VERSION"); fi
+        if [ -n "$MODULE" ]; then args+=("$MODULE"); fi
+        def "${args[@]}"

@@ -1,0 +1,15 @@
+tempo: 120
+timeSignature: "4/4"
+mark: Setup
+templates:
+  - id: 0
+    name: Init
+    events:
+      - {tag: Memo, text: Init template}
+tracks:
+  - name: System Setup
+    ch: 1
+    events:
+      - {tag: Template, attrs: {ID: 0, Tick: 0}}
+  - ch: 1
+    current: true

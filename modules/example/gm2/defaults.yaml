@@ -1,0 +1,125 @@
+tempo: 120
+timeSignature: "4/4"
+keySignature: "C Maj"
+marks:
+  - {meas: 2, name: Start}
+endTick: 1920
+templates:
+  - id: 0
+    name: GM2 Melody Channel Init
+    events:
+      - {tag: CC, attrs: {ID: 121, Value: 0}}
+      - {tag: CC, attrs: {ID: 7, Value: 100}}
+      - {tag: CC, attrs: {ID: 10, Value: 64}}
+      - {tag: CC, attrs: {ID: 11, Value: 127}}
+      - {tag: PC, attrs: {PC: 1, MSB: 121, LSB: 0, Mode: Auto}}
+      - {tag: CC, attrs: {ID: 91, Value: 40}}
+      - {tag: CC, attrs: {ID: 93, Value: 0}}
+  - id: 1
+    name: GM2 Rhythm Channel Init
+    events:
+      - {tag: CC, attrs: {ID: 121, Value: 0}}
+      - {tag: PC, attrs: {PC: 1, MSB: 120, LSB: 0, Mode: Drumset}}
+tracks:
+  - name: System Setup
+    ch: 1
+    events:
+      - {tag: Comment, attrs: {Tick: 0, Step: 0, Text: "---- Reset --------------------------------------------------"}}
+      - {tag: CC, attrs: {ID: 200}, text: ""}
+      - {tag: Comment, attrs: {Step: 0, Text: "---- Global --------------------------------------------------"}}
+      - {tag: CC, attrs: {ID: 203, Value: 16383}, text: ""}
+      - {tag: CC, attrs: {ID: 204, Value: 0}, text: ""}
+      - {tag: CC, attrs: {ID: 205, Value: 0}, text: ""}
+      - {tag: Comment, attrs: {Step: 0, Text: "---- Reverb --------------------------------------------------"}}
+      - {tag: CC, attrs: {ID: 300, Value: 4}, text: ""}
+      - {tag: CC, attrs: {ID: 301, Value: 64}, text: ""}
+      - {tag: Comment, attrs: {Step: 0, Text: "---- Chorus --------------------------------------------------"}}
+      - {tag: CC, attrs: {ID: 302, Value: 2}, text: ""}
+      - {tag: CC, attrs: {ID: 303, Value: 3}, text: ""}
+      - {tag: CC, attrs: {ID: 304, Value: 19}, text: ""}
+      - {tag: CC, attrs: {ID: 305, Value: 8}, text: ""}
+      - {tag: CC, attrs: {ID: 306, Value: 0}, text: ""}
+      - {tag: Comment, attrs: {Step: 0, Text: "---- Controller Destination Examples -----------------------"}}
+      - {tag: CC, attrs: {ID: 220}, text: ""}
+      - {tag: CC, attrs: {ID: 221}, text: ""}
+      - {tag: Comment, attrs: {Step: 0, Text: "---- End of System Setup ------------------------------------"}}
+  - name: CH01
+    ch: 1
+    current: true
+    events:
+      - {tag: Comment, attrs: {Tick: 0, Step: 0, Text: "---- CH Setup --------------------------------------------------"}}
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+      - {tag: Comment, attrs: {Step: 0, Text: "---- End of CH Setup -----------------------------------------"}}
+  - name: CH02
+    ch: 2
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH03
+    ch: 3
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH04
+    ch: 4
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH05
+    ch: 5
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH06
+    ch: 6
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH07
+    ch: 7
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH08
+    ch: 8
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH09
+    ch: 9
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH10
+    ch: 10
+    mode: Rhythm
+    events:
+      - {tag: Comment, attrs: {Tick: 0, Step: 0, Text: "---- CH Setup --------------------------------------------------"}}
+      - {tag: Template, attrs: {ID: 1, Step: 1}}
+  - name: CH11
+    ch: 11
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH12
+    ch: 12
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH13
+    ch: 13
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH14
+    ch: 14
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH15
+    ch: 15
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: CH16
+    ch: 16
+    events:
+      - {tag: Template, attrs: {ID: 0, Step: 1}}
+  - name: Drum Key-Based Controllers
+    ch: 10
+    mode: Rhythm
+    events:
+      - {tag: Comment, attrs: {Tick: 0, Step: 0, Text: "---- Drum Parameter --------------------------------------------------"}}
+      - {tag: PC, attrs: {PC: 1, MSB: 120, LSB: 0, Mode: Drumset, Step: 1}}
+      - {tag: CC, attrs: {ID: 230, Gate: 36, Value: 64, Step: 3}}
+      - {tag: CC, attrs: {ID: 231, Gate: 36}}
+      - {tag: CC, attrs: {ID: 232, Gate: 40}}
+      - {tag: CC, attrs: {ID: 233, Gate: 42}}
+      - {tag: Comment, attrs: {Step: 0, Text: "---- End of Drum Parameter ------------------------------------"}}

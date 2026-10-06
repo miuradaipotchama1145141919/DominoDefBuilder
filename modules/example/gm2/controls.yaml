@@ -1,0 +1,286 @@
+tables:
+  - id: 1
+    entries:
+      0: "Off"
+      127: "On"
+  - id: 2
+    entries:
+      0: Left
+      64: Center
+      127: Right
+
+items:
+  - type: folder
+    name: Channel Controls
+    id: 10
+    items:
+      - type: ccm
+        id: 1
+        name: Modulation Depth
+        value: {default: 0, max: 127}
+        data: "@CC 1 #VL"
+      - type: ccm
+        id: 5
+        name: Portamento Time
+        value: {default: 0, max: 127}
+        data: "@CC 5 #VL"
+      - type: ccm
+        id: 7
+        name: Channel Volume
+        sync: Last
+        value: {default: 100, max: 127}
+        data: "@CC 7 #VL"
+      - type: ccm
+        id: 10
+        name: Pan
+        sync: Last
+        value: {default: 0, min: -64, max: 63, offset: 64, name: Position}
+        memo: "Signed pan example using an offset."
+        data: "@CC 10 #VL"
+      - type: ccm
+        id: 11
+        name: Expression
+        value: {default: 127, max: 127}
+        data: "@CC 11 #VL"
+      - type: ccm
+        id: 64
+        name: Hold 1
+        value: {default: 0, max: 127, tableId: 1}
+        data: "@CC 64 #VL"
+      - type: ccm
+        id: 65
+        name: Portamento On/Off
+        value: {default: 0, max: 127, tableId: 1}
+        data: "@CC 65 #VL"
+      - type: ccm
+        id: 66
+        name: Sostenuto
+        value: {default: 0, max: 127, tableId: 1}
+        data: "@CC 66 #VL"
+      - type: ccm
+        id: 67
+        name: Soft
+        value: {default: 0, max: 127, tableId: 1}
+        data: "@CC 67 #VL"
+      - type: ccm
+        id: 71
+        name: Filter Resonance
+        value: {default: 64, max: 127}
+        data: "@CC 71 #VL"
+      - type: ccm
+        id: 72
+        name: Release Time
+        value: {default: 64, max: 127}
+        data: "@CC 72 #VL"
+      - type: ccm
+        id: 73
+        name: Attack Time
+        value: {default: 64, max: 127}
+        data: "@CC 73 #VL"
+      - type: ccm
+        id: 74
+        name: Brightness
+        value: {default: 64, max: 127}
+        data: "@CC 74 #VL"
+      - type: ccm
+        id: 75
+        name: Decay Time
+        value: {default: 64, max: 127}
+        data: "@CC 75 #VL"
+      - type: ccm
+        id: 76
+        name: Vibrato Rate
+        value: {default: 64, max: 127}
+        data: "@CC 76 #VL"
+      - type: ccm
+        id: 77
+        name: Vibrato Depth
+        value: {default: 64, max: 127}
+        data: "@CC 77 #VL"
+      - type: ccm
+        id: 78
+        name: Vibrato Delay
+        value: {default: 64, max: 127}
+        data: "@CC 78 #VL"
+      - type: ccm
+        id: 91
+        name: Reverb Send Level
+        value: {default: 40, max: 127}
+        data: "@CC 91 #VL"
+      - type: ccm
+        id: 93
+        name: Chorus Send Level
+        value: {default: 0, max: 127}
+        data: "@CC 93 #VL"
+      - type: ccm
+        id: 100
+        name: RPN LSB
+        value: {default: 127, max: 127}
+        data: "@CC 100 #VL"
+      - type: ccm
+        id: 101
+        name: RPN MSB
+        value: {default: 127, max: 127}
+        data: "@CC 101 #VL"
+      - type: ccm
+        id: 6
+        name: Data Entry MSB
+        value: {default: 0, max: 127}
+        data: "@CC 6 #VL"
+      - type: ccm
+        id: 38
+        name: Data Entry LSB
+        value: {default: 0, max: 127}
+        data: "@CC 38 #VL"
+      - type: ccm
+        id: 120
+        name: All Sound Off
+        sync: Last
+        data: "@CC 120 0"
+      - type: ccm
+        id: 121
+        name: Reset All Controllers
+        sync: Last
+        data: "@CC 121 0"
+      - type: ccm
+        id: 123
+        name: All Notes Off
+        sync: Last
+        data: "@CC 123 0"
+      - type: ccm
+        id: 124
+        name: Omni Mode Off
+        sync: Last
+        data: "@CC 124 0"
+      - type: ccm
+        id: 125
+        name: Omni Mode On
+        sync: Last
+        data: "@CC 125 0"
+      - type: ccm
+        id: 126
+        name: Mono Mode On
+        sync: Last
+        value: {default: 1, max: 127}
+        data: "@CC 126 #VL"
+      - type: ccm
+        id: 127
+        name: Poly Mode On
+        sync: Last
+        data: "@CC 127 0"
+      - type: ccm
+        id: 130
+        name: Pitch Bend
+        value: {default: 0, min: -8192, max: 8191, offset: 8192}
+        data: "@PB #VH #VL"
+      - type: ccm
+        id: 131
+        name: Channel Pressure
+        value: {default: 0, max: 127}
+        data: "@CP #VL"
+      - type: ccm
+        id: 132
+        name: Pitch Bend Sensitivity
+        value: {default: 2, min: 0, max: 24, name: Semitones}
+        data: "@RPN 00H 00H #VL #NONE"
+      - type: ccm
+        id: 133
+        name: Channel Fine Tuning
+        value: {default: 0, min: -8192, max: 8191, offset: 8192, name: 100/8192 cents}
+        data: "@RPN 00H 01H #VL #VH"
+      - type: ccm
+        id: 134
+        name: Channel Coarse Tuning
+        value: {default: 0, min: -64, max: 63, offset: 64, name: Semitones}
+        data: "@RPN 00H 02H #VL #NONE"
+      - type: ccm
+        id: 135
+        name: Modulation Depth Range
+        value: {default: 64, max: 8191, name: RPN 00H/05H}
+        data: "@RPN 00H 05H #VL #VH"
+      - type: ccmLink
+        id: 7
+        value: 90
+  - type: folder
+    name: Universal System Messages
+    items:
+      - type: ccm
+        id: 200
+        name: GM2 System On
+        sync: Last
+        data: "@SYSEX F0H 7EH 7FH 09H 03H F7H"
+      - type: ccm
+        id: 201
+        name: GM1 System On
+        sync: Last
+        data: "@SYSEX F0H 7EH 7FH 09H 01H F7H"
+      - type: ccm
+        id: 202
+        name: GM System Off
+        sync: Last
+        data: "@SYSEX F0H 7EH 7FH 09H 02H F7H"
+      - type: ccm
+        id: 203
+        name: Master Volume
+        sync: Last
+        value: {default: 16383, max: 16383}
+        data: "@SYSEX F0H 7FH 7FH 04H 01H #VL #VH F7H"
+      - type: ccm
+        id: 204
+        name: Master Fine Tuning
+        sync: Last
+        value: {default: 0, min: -8192, max: 8191, offset: 8192, name: 14-bit tuning}
+        data: "@SYSEX F0H 7FH 7FH 04H 03H #VL #VH F7H"
+      - type: ccm
+        id: 205
+        name: Master Coarse Tuning
+        sync: Last
+        value: {default: 0, min: -64, max: 63, offset: 64, name: Semitones}
+        data: "@SYSEX F0H 7FH 7FH 04H 04H 00H #VL F7H"
+  - type: folder
+    name: Controller Destination
+    items:
+      - type: ccm
+        id: 220
+        name: Channel Pressure Destination Example
+        sync: Last
+        memo: "GM2 required Controller Destination Setting example."
+        data: "@SYSEX F0H 7FH 7FH 09H 01H #CH 00H 42H 01H 60H 05H 20H F7H"
+      - type: ccm
+        id: 221
+        name: CC Destination Example
+        sync: Last
+        memo: "GM2 required Controller Destination Setting example using General Purpose Controller 1."
+        data: "@SYSEX F0H 7FH 7FH 09H 03H #CH 10H 00H 42H 01H 60H 05H 20H F7H"
+  - type: folder
+    name: Key-Based Drum Controllers
+    items:
+      - type: ccm
+        id: 230
+        name: Drum Volume
+        sync: LastEachGate
+        value: {default: 64, min: 0, max: 127}
+        gate: {default: 36, min: 27, max: 87, type: Key, name: Note}
+        memo: "GM2 Key-Based Instrument Controller example for per-note percussion volume."
+        data: "@SYSEX F0H 7FH 7FH 0AH 01H #CH #GL 07H #VL F7H"
+      - type: ccm
+        id: 231
+        name: Drum Pan
+        sync: LastEachGate
+        value: {default: 64, max: 127}
+        gate: {default: 36, min: 27, max: 87, type: Key, name: Note}
+        data: "@SYSEX F0H 7FH 7FH 0AH 01H #CH #GL 0AH #VL F7H"
+      - type: ccm
+        id: 232
+        name: Drum Reverb Send
+        sync: LastEachGate
+        value: {default: 0, max: 127}
+        gate: {default: 36, min: 27, max: 87, type: Key, name: Note}
+        data: "@SYSEX F0H 7FH 7FH 0AH 01H #CH #GL 5BH #VL F7H"
+      - type: ccm
+        id: 233
+        name: Drum Chorus Send
+        sync: LastEachGate
+        value: {default: 0, max: 127}
+        gate: {default: 36, min: 27, max: 87, type: Key, name: Note}
+        data: "@SYSEX F0H 7FH 7FH 0AH 01H #CH #GL 5DH #VL F7H"

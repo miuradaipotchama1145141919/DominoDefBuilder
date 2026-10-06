@@ -1,0 +1,11 @@
+maps:
+  - name: 001-002 Test
+    start: 1
+    names: [One, Two]
+  - name: Explicit
+    programs:
+      - pc: 3
+        name: Three
+        banks:
+          - {name: Three A, msb: 0, lsb: 1}
+          - {name: Three B, msb: 0, lsb: 2}

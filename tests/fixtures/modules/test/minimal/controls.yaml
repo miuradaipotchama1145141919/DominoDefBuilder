@@ -1,0 +1,29 @@
+tables:
+  - id: 1
+    entries: {0: "Off", 127: "On"}
+items:
+  - type: folder
+    name: Channel
+    id: 0
+    items:
+      - type: ccm
+        id: 7
+        name: Volume
+        sync: Last
+        value: {default: 100, min: 0, max: 127}
+        data: "@CC 7 #VL"
+      - type: ccm
+        id: 64
+        name: Sustain
+        value: {max: 127, tableId: 1}
+        data: "@CC 64 #VL"
+      - type: ccmLink
+        id: 7
+        value: 90
+      - type: folderLink
+        id: 0
+        name: Channel Copy
+  - type: ccm
+    id: 200
+    name: GS Reset
+    sysex: {profile: gs, address: 40H 00H 7FH, payload: 00H}

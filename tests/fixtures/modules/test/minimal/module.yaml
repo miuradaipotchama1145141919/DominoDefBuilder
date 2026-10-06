@@ -1,0 +1,11 @@
+name: Test Module
+folder: Test
+creator: tests
+version: "1.00"
+rhythmGate: 10
+exclusiveDefault: F0H 7EH 7FH 09H 01H F7H
+defaultCcmId: 7
+profiles:
+  gs:
+    header: F0H 41H 10H 42H 12H
+    checksum: true

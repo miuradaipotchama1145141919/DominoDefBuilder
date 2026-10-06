@@ -1,0 +1,44 @@
+name: release-modules (example)
+
+on:
+  push:
+    tags:
+      - "modules-v*"
+      - "modules/*/*/v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+      - name: Build
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          if [[ "$TAG" == modules/*/*/v* ]]; then
+            module="${TAG#modules/}"
+            dominodef build --version "${TAG##*/v}" "${module%/v*}"
+          else
+            dominodef build
+          fi
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: gh release create "$TAG" dist/*.xml dist/manifest.json --title "$TAG" --generate-notes --verify-tag

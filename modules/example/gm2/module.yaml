@@ -1,0 +1,10 @@
+name: GM2 Example
+folder: Examples
+priority: 100
+creator: DominoDefBuilder
+version: "1.01"
+website: ""
+defaultCcmId: 7
+exclusiveDefault: F0H 7EH 7FH 09H 03H F7H
+rhythmGate: 10
+previewDelay: 0

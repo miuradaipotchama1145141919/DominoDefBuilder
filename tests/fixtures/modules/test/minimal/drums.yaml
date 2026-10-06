@@ -1,0 +1,11 @@
+toneSets:
+  basic:
+    36: Kick
+    38: Snare
+maps:
+  - name: Kits
+    programs:
+      - pc: 1
+        name: Standard
+        banks:
+          - {toneSet: basic}
