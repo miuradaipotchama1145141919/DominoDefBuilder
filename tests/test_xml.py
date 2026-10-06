@@ -12,7 +12,7 @@ from DominoDefBuilder.xml_writer import attr, findAll, node, serialize
 
 here = os.path.dirname(__file__)
 fixtureRoot = os.path.join(here, "fixtures", "modules")
-repoModules = os.path.join(here, "..", "modules")
+repoModules = os.path.join(here, "..", "examples", "modules")
 
 
 def buildFixture():
